@@ -1,3 +1,4 @@
+---
 author: "Alejandro Reyes"
 date: "`r BiocStyle::doc_date()`"
 package: "`r BiocStyle::pkg_ver('GenomeMatrix')`"
