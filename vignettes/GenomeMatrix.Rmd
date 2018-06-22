@@ -1,0 +1,60 @@
+author: "Alejandro Reyes"
+date: "`r BiocStyle::doc_date()`"
+package: "`r BiocStyle::pkg_ver('GenomeMatrix')`"
+abstract: >
+  "In the analysis of HiC or similar types of interaction data, it is useful
+  to plot matrices while rotating them by -45 degrees. My motivation to write 
+  this function was to visualize HiC data along with other genomic tracks, 
+  such as gene annotations and chromatin marks. "
+output:
+  BiocStyle::html_document:
+    highlight: pygments
+    toc: true
+    fig_width: 5
+bibliography: library.bib
+vignette: >
+  %\VignetteIndexEntry{Plotting rotated matrices}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r echo=FALSE, include=FALSE}
+knitr::opts_chunk$set(tidy = FALSE,
+                      cache = TRUE,
+                      dev = "png",
+                      message = FALSE,
+                      error = FALSE,
+                      warning = TRUE)
+```
+
+# Quick start
+
+The minimum necessary to plot a matrix is simply a matrix. The function `matrixPlotter()` will rotate and plot only the upper half of the matrix. We specify the parameter `heightProp=1/2` for the height of the plot (y-axis) to be one half of the x-axis. 
+
+```{r quickstart}
+library(GenomeMatrix)
+set.seed(100)
+mat <- matrix( rnorm( 100, 0, 1 ), ncol=10 )
+matrixPlotter(mat, heightProp=1/2) 
+```
+
+This is an ugly plot, but in the following sections I show a more useful example, with HiC data.
+
+# HiC data
+
+Below, I use a publicly available HiC dataset to demonstrate the main function. By providing a matrix, a *GenomicRanges* object where each element corresponds to a row (or a column) of the matrix and specifying the right `zlim=` and `heightProp=` parameters, we can visualize TADs horizontally. 
+
+```{r}
+library(HiTC)
+data(Dixon2012_IMR90, package="HiCDataHumanIMR90")
+mat <- as.matrix( hic_imr90_40@.Data[[1]]@intdata )
+granges <- hic_imr90_40@.Data[[1]]@xgi
+matrixPlotter( log2(mat+1), granges, 
+               plotGR=GRanges("chr1", IRanges( 50000000, 60000000 ) ), 
+               zlim=5, heightProp=1/4) 
+```
+
+Note that the output is a *ggplot2* object. Thus it is straightforward to arrange this into a single panel with other *ggplot2* plots, such as gene annotations from the *ggbio* package, using packages like *ggpubr*.
+

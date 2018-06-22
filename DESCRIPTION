@@ -1,0 +1,23 @@
+Package: GenomeMatrix
+Type: Package
+Title: Plot rotated matrices 
+Version: 0.99.0
+Date: 2018-06-22
+Author: Alejandro Reyes
+Maintainer: Alejandro Reyes <alejandro.reyes.ds@gmail.com>
+Description: Often, for example in HiC analyses, it is useful to plot a 
+  symmetric matrix rotated -45 degrees. This enables integrating and visualizign 
+  HiC tracks together with other genomic datasets, such as chip-seq signal. 
+Depends: GenomicRanges,
+  ggplot2,
+  RColorBrewer,
+  reshape2,
+  knitr
+Suggests: 
+  HiCDataHumanIMR90,
+  HiTC
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: knitr
+RoxygenNote: 6.0.1
