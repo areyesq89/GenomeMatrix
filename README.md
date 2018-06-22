@@ -5,3 +5,4 @@ function was to visualize HiC data along with other genomic tracks, such as
 gene annotations (using ggbio) and chromatin marks. The result are plots like the
 one below:
 
+![alt text](https://pbs.twimg.com/media/DgVB7cMWsAE8Eec.jpg)
