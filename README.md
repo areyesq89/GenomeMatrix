@@ -16,7 +16,7 @@ source("http://bioconductor.org/biocLite.R")
 biocLite("areyesq89/GenomeMatrix")
 ```
 
-## Vignette and help
+## Documentation and vignette
 
 The package consists of a single function called `matrixPlotter()`
 As in every R package, you can check the parameters of the function
