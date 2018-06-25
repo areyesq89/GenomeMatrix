@@ -12,7 +12,8 @@ advantages. I show an example below of the resulting plots:
 ## Installing the package
 
 ```
-devtools::install_github("areyesq89/GenomeMatrix")
+source("http://bioconductor.org/biocLite.R")
+biocLite("areyesq89/GenomeMatrix")
 ```
 
 ## Vignette and help
@@ -25,4 +26,5 @@ by typing the following into the R prompt:
 ?matrixPlotter
 ```
 
-Check the [vignette](https://github.com/areyesq89/GenomeMatrix/blob/master/vignettes/GenomeMatrix.Rmd) of this package for examples using the function.
+Check the [vignette](https://github.com/areyesq89/GenomeMatrix/blob/master/vignettes/GenomeMatrix.Rmd) for
+examples using `matrixPlotter()`. If you have feature requests or suggestions, feel free to write an issue or to submit a pull request.
