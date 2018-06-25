@@ -10,3 +10,7 @@ advantages. I show an example below of the resulting plots:
 
 
 ## Installing the package
+
+```
+devtools::install_github("areyesq89/GenomeMatrix")
+```
