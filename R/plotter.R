@@ -112,7 +112,7 @@ matrixPlotter <- function( mat, granges=NULL, plotGR=NULL, extend=0.5, heightPro
   ylim2 <- originalWidth*heightProp
   cols <- colorRampPalette( brewer.pal( 9, colRamp ), bias=colorBias )( 50 )
   if( !is.null( zlim ) ){
-    coordsDF$val <- pmin( coordsDF$val, zlim )
+    coordsDF$val <- pmax( -zlim, pmin( coordsDF$val, zlim ) )
   }
   p <- ggplot(coordsDF, aes(x = x, y = y)) +
     geom_polygon(aes(fill = val, group = bin)) +
