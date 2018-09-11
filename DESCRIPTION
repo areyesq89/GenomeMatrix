@@ -1,7 +1,7 @@
 Package: GenomeMatrix
 Type: Package
 Title: Plot rotated matrices 
-Version: 0.99.1
+Version: 0.99.2
 Date: 2018-06-22
 Author: Alejandro Reyes
 Maintainer: Alejandro Reyes <alejandro.reyes.ds@gmail.com>

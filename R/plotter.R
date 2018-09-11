@@ -122,8 +122,6 @@ matrixPlotter <- function( mat, granges=NULL, plotGR=NULL, extend=0.5, heightPro
     theme( axis.text.y=element_blank(), legend.position="none" )
   if( !is.null( highlight ) ){
     highlight <- subsetByOverlaps( highlight, plotGR )
-    start(highlight) <- start( highlight ) - binSize/2
-    end(highlight) <- end (highlight) - binSize/2
     p <- p + geom_rect(
       data = as.data.frame( highlight ), inherit.aes=FALSE,
       aes( xmin=start, xmax=end, ymin=-Inf, ymax=Inf ),
