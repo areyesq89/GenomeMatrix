@@ -19,6 +19,7 @@
 #' @param highlight Optional. A \code{\link{GenomicRanges}} object indicating a region to highlight. 
 #' If specified, A box would be drawn around this region.
 #' @param colRamp A name of a color palette (see ?brewer.pal).
+#' @param colPalette A vector of colors in hexadecimal format. Overwrites the palette for \code{colRamp}.
 #' @param smoothFilt An optional smoothing function for the matrix. 
 #'
 #' @examples
@@ -39,8 +40,8 @@
 #' @importFrom reshape2 melt
 #' @importFrom RColorBrewer brewer.pal
 matrixPlotter <- function( mat, granges=NULL, plotGR=NULL, extend=0.5, heightProp=1/3,
-                            zlim=NULL, colorBias=1, highlight=NULL, colRamp="YlOrRd",
-                            smoothFilt=NULL ){
+                          zlim=NULL, colorBias=1, highlight=NULL, colRamp="YlOrRd",
+                          colPalette=NULL, smoothFilt=NULL ){
   stopifnot( is.matrix( mat ) )
   stopifnot( dim( mat )[1] == dim( mat )[2] )
   if( is.null( granges ) ){
@@ -110,7 +111,11 @@ matrixPlotter <- function( mat, granges=NULL, plotGR=NULL, extend=0.5, heightPro
   coordsDF$y <- pmax( 0, coordsDF$y )
   coordsDF$y <- coordsDF$y * binSize
   ylim2 <- originalWidth*heightProp
-  cols <- colorRampPalette( brewer.pal( 9, colRamp ), bias=colorBias )( 50 )
+  if( !is.null( colPalette ) ){
+      cols <- colorRampPalette( colPalette, bias=colorBias )( 50 )      
+  }else{
+      cols <- colorRampPalette( brewer.pal( 9, colRamp ), bias=colorBias )( 50 )
+  }
   if( !is.null( zlim ) ){
     coordsDF$val <- pmax( -zlim, pmin( coordsDF$val, zlim ) )
   }
