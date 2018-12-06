@@ -7,7 +7,7 @@
 \usage{
 matrixPlotter(mat, granges = NULL, plotGR = NULL, extend = 0.5,
   heightProp = 1/3, zlim = NULL, colorBias = 1, highlight = NULL,
-  colRamp = "YlOrRd", smoothFilt = NULL)
+  colRamp = "YlOrRd", colPalette = NULL, smoothFilt = NULL)
 }
 \arguments{
 \item{mat}{A n x n symmetric matrix to plot.}
@@ -33,6 +33,8 @@ to this parameter.}
 If specified, A box would be drawn around this region.}
 
 \item{colRamp}{A name of a color palette (see ?brewer.pal).}
+
+\item{colPalette}{A vector of colors in hexadecimal format. Overwrites the palette for \code{colRamp}.}
 
 \item{smoothFilt}{An optional smoothing function for the matrix.}
 }

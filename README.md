@@ -12,8 +12,7 @@ advantages. I show an example below of the resulting plots:
 ## Installing the package
 
 ```
-source("http://bioconductor.org/biocLite.R")
-biocLite("areyesq89/GenomeMatrix")
+BiocManager::install("areyesq89/GenomeMatrix")
 ```
 
 ## Documentation and vignette

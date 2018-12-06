@@ -1,4 +1,5 @@
 ---
+title: Plotting HiC matrices
 author: "Alejandro Reyes"
 date: "`r BiocStyle::doc_date()`"
 package: "`r BiocStyle::pkg_ver('GenomeMatrix')`"
@@ -12,7 +13,6 @@ output:
     highlight: pygments
     toc: true
     fig_width: 5
-bibliography: library.bib
 vignette: >
   %\VignetteIndexEntry{Plotting rotated matrices}
   %\VignetteEncoding{UTF-8}
